@@ -10,24 +10,43 @@
 
     <TextView
         android:id="@+id/titleBMI"
-        android:textColor="@color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="100dp"
-        android:text="@string/bmi"
+        android:text="@string/app_name"
+        android:textColor="@color/black"
         android:textSize="48sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Switch
+        android:id="@+id/switchMetrics"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
+        android:layout_marginBottom="40dp"
+        android:padding="24dp"
+        android:switchPadding="16dp"
+        android:text="@string/metrics_system"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/weightEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.16"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/titleBMI"
+        app:layout_constraintVertical_bias="0.566"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
     <EditText
+        android:inputType="numberDecimal"
         android:id="@+id/weightEditText"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="148dp"
         android:gravity="center_horizontal"
         android:hint="@string/hint_kg"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,20 +58,37 @@
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="32dp"
         android:gravity="center_horizontal"
         android:hint="@string/hint_cm"
+        android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/weightEditText" />
+
+    <EditText
+        android:id="@+id/inchesEditText"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="32dp"
+        android:gravity="center_horizontal"
+        android:hint="@string/hint_inches"
+        android:inputType="numberDecimal"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/calculateButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/heighEditText"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/calculateButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="@string/calculate"
+        android:layout_marginTop="116dp"
         android:padding="10dp"
+        android:text="@string/calculate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/heighEditText" />
