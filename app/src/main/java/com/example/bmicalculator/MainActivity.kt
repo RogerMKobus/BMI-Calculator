@@ -40,9 +40,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun calculate(){
 
-        var check = switchMetrics.isChecked
+        val check = switchMetrics.isChecked
 
-        if (check == true) {
+        if (check) {
             val pounds = weightEditText.text.toString().toFloatOrNull()
             val feet = heighEditText.text.toString().toFloatOrNull()
             val inches = inchesEditText.text.toString().toFloatOrNull()
@@ -52,32 +52,9 @@ class MainActivity : AppCompatActivity() {
                 // then you divide the pounds for the total of inches 2 times, and multiply by 703 and you'll get the answer
 
                 val bmi = ((pounds / (feet * 12 + inches)) / (feet * 12 + inches)) * 703
-                val result: String?
-
-                result = when {
-                    bmi <= 18.5 -> {
-                        "Underweight"
-                    }
-                    bmi in 18.5..24.9 -> {
-                        "Normal range"
-                    }
-                    bmi in 25.0..29.9 -> {
-                        "Overweight"
-                    }
-                    bmi in 30.0..34.9 -> {
-                        "Obese class I"
-                    }
-                    bmi in 35.0..39.9 -> {
-                        "Obese class II"
-                    }
-                    else -> {
-                        "Obese class III"
-                    }
-                }
 
                 val intent = Intent(this@MainActivity,ResultActivity::class.java)
                 intent.putExtra("bmi", String.format("%.2f", bmi))
-                intent.putExtra("result", result)
                 startActivity(intent)
             }
         }
@@ -88,32 +65,9 @@ class MainActivity : AppCompatActivity() {
 
             if ( kg != null && cm != null){
                 val bmi = kg / (cm * cm)
-                val result: String?
-
-                result = when {
-                    bmi <= 18.5 -> {
-                        "Underweight"
-                    }
-                    bmi in 18.5..24.9 -> {
-                        "Normal range"
-                    }
-                    bmi in 25.0..29.9 -> {
-                        "Overweight"
-                    }
-                    bmi in 30.0..34.9 -> {
-                        "Obese class I"
-                    }
-                    bmi in 35.0..39.9 -> {
-                        "Obese class II"
-                    }
-                    else -> {
-                        "Obese class III"
-                    }
-                }
 
                 val intent = Intent(this@MainActivity,ResultActivity::class.java)
                 intent.putExtra("bmi", String.format("%.2f", bmi))
-                intent.putExtra("result", result)
                 startActivity(intent)
         }
         }

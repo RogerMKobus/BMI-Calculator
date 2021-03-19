@@ -12,30 +12,39 @@ class ResultActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
 
-        resultText.text = "BMI: "+ intent.getStringExtra("bmi") +
-                "\n\nWeight status: " + intent.getStringExtra("result")
-
         val bmi = intent.getStringExtra("bmi")?.toFloat()
 
         if (bmi != null) {
             when {
                 bmi <= 18.5 -> {
                     resultText.setBackgroundResource(R.color.underweight)
+                    resultText.text = "BMI: "+ intent.getStringExtra("bmi") +
+                            "\n\nWeight status: Underweight"
                 }
                 bmi in 18.5..24.9 -> {
                     resultText.setBackgroundResource(R.color.normal)
+                    resultText.text = "BMI: "+ intent.getStringExtra("bmi") +
+                            "\n\nWeight status: Normal range"
                 }
                 bmi in 25.0..29.9 -> {
                     resultText.setBackgroundResource(R.color.overweight)
+                    resultText.text = "BMI: "+ intent.getStringExtra("bmi") +
+                            "\n\nWeight status: Overweight"
                 }
                 bmi in 30.0..34.9 -> {
                     resultText.setBackgroundResource(R.color.obeseI)
+                    resultText.text = "BMI: "+ intent.getStringExtra("bmi") +
+                            "\n\nWeight status: Obese class I"
                 }
                 bmi in 35.0..39.9 -> {
                     resultText.setBackgroundResource(R.color.obeseII)
+                    resultText.text = "BMI: "+ intent.getStringExtra("bmi") +
+                            "\n\nWeight status: Obese class II"
                 }
                 else -> {
                     resultText.setBackgroundResource(R.color.obeseIII)
+                    resultText.text = "BMI: "+ intent.getStringExtra("bmi") +
+                            "\n\nWeight status: Obese class III"
                 }
             }
         }
